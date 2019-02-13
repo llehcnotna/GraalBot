@@ -1,0 +1,18 @@
+{
+  "name": "graalbot",
+  "version": "1.0.0",
+  "description": "A Graal Util bot made by X",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Default",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^11.4.2",
+    "moment": "^2.24.0",
+    "ms": "^2.1.1",
+    "nodemon": "^1.18.10"
+  }
+}

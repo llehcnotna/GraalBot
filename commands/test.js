@@ -7,8 +7,8 @@ exports.run = async (client, message, args) => {
   
         setTimeout(function() {
           message.author.send('test test 123');
+          console.log(`[ LOG ] I have sent a reminder to ${message.author}`);
         }, ms('2m'));
-        console.log(`[ LOG ] I have sent a reminder to ${message.author}`);
 };
 
 module.exports.help = {

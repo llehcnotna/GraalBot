@@ -8,12 +8,15 @@ module.exports.run = async (client, message, args) => {
     const bountyEmote = client.emojis.find(e => e.name === 'bountybox');
 
     message.channel.send(`${bountyEmote} I'll remind you that in \`24 hours\`.`);
-
+try {
         setTimeout(function() {
           message.author.send('Your daily bounty is now available at the \`castle\`.');
             console.log(`[ LOG ] I have sent a reminder to ${message.author}`);
         }, ms('24h'));
-
+}
+catch(error) {
+    console.log(error);
+}
 };
 
 module.exports.help = {

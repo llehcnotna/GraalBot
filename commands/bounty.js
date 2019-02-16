@@ -9,15 +9,11 @@ module.exports.run = async (client, message, args) => {
 
     message.channel.send(`${bountyEmote} I'll remind you that in \`24 hours\`.`);
 
-    const bountyRemind = new Promise(function(resolve, reject) {
         setTimeout(function() {
           message.author.send('Your daily bounty is now available at the \`castle\`.');
+            console.log(`[ LOG ] I have sent a reminder to ${message.author}`);
         }, ms('24h'));
-      });
-      
-      bountyRemind.then(function(value) {
 
-      });
 };
 
 module.exports.help = {

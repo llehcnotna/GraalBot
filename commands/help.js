@@ -25,12 +25,13 @@ module.exports.run = async (client, message, args) => {
         message.reply('**Usage:** \`g>help\`');
         return;
     };
-    if(args[0] === 'mpas'){
+    if(args[0] === 'maps'){
         message.reply('**Usage:** \`g>maps\`');
         return;
     };
     if(args[0] === 'ping') {
         message.reply('**Usage:** \`g>ping\`');
+        return;
     };
     if(args[0] === 'shields'){
         message.reply('**Usage:** \`g>shields\`');

@@ -58,7 +58,6 @@ y.addListener('data', res => {
     client.channels.get('562371367278870544').send(x.join(' '));
 });
 
-// Naris General Chat: 553008847543992361
 //////////////////
 
 // Perms Stuff
@@ -80,4 +79,4 @@ client.on('message', async message => {
 
 });
 
-client.login(config.token);
+client.login(process.env.BOT_TOKEN);

@@ -59,22 +59,22 @@ module.exports.run = async (client, message, args) => {
     .setTitle('**GraalBot Help**')
     .setDescription(`Prefix: **${config.prefix}**`)
     .addField('**__Commands__**', `For more information on a specific command use \`${config.prefix}help <command>\``)
-    .addField(`${config.prefix}bandit`, 'Sends a reminder to do bandit chests.')
-    .addField(`${config.prefix}botinfo`, 'Sends information about this bot.')
-    .addField(`${config.prefix}bounty`, 'Sends a reminder to do the daily bounty quest.')
-    .addField(`${config.prefix}bugs`, 'Sends a list of all the catchable bugs on GraalClassic.')
-    .addField(`${config.prefix}help`, 'Sends this message.')
-    .addField(`${config.prefix}maps`, 'Sends a link for GraalMaps.')
-    .addField(`${config.prefix}ping`, 'Gets the bot\'s ping.')
-    .addField(`${config.prefix}shields`, 'Sends a link for Taylor Richaards shields.')
-    .addField(`${config.prefix}swords`, 'Sends a link for Taylor Richaards swords.')
-    .addField(`${config.prefix}spoils`, 'Sends a reminder for the Giant Blob Boss.')
-    .addField(`${config.prefix}uptime`, 'Shows how long the bot has been running for.')
+    .addField(`bandit`, 'Sends a reminder to do bandit chests.')
+    .addField(`botinfo`, 'Sends information about this bot.')
+    .addField(`bounty`, 'Sends a reminder to do the daily bounty quest.')
+    .addField(`bugs`, 'Sends a list of all the catchable bugs on GraalClassic.')
+    .addField(`help`, 'Sends this message.')
+    .addField(`maps`, 'Sends a link for GraalMaps.')
+    .addField(`ping`, 'Gets the bot\'s ping.')
+    .addField(`shields`, 'Sends a link for Taylor Richaards shields.')
+    .addField(`swords`, 'Sends a link for Taylor Richaards swords.')
+    .addField(`spoils`, 'Sends a reminder for the Giant Blob Boss.')
+    .addField(`uptime`, 'Shows how long the bot has been running for.')
 
     message.author.send(helpEmbed);
 };
 
 module.exports.help = {
     name: 'help',
-    aliases: ['']
+    aliases: ['h']
 };

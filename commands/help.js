@@ -25,6 +25,10 @@ module.exports.run = async (client, message, args) => {
         message.reply('**Usage:** \`g>help\`');
         return;
     };
+    if(args[0] === 'loot'){
+        message.reply('**Usage:** \`g>loot location\`');
+        return;
+    };
     if(args[0] === 'maps'){
         message.reply('**Usage:** \`g>maps\`');
         return;
@@ -64,6 +68,7 @@ module.exports.run = async (client, message, args) => {
     .addField(`bounty`, 'Sends a reminder to do the daily bounty quest.')
     .addField(`bugs`, 'Sends a list of all the catchable bugs on GraalClassic.')
     .addField(`help`, 'Sends this message.')
+    .addField('loot', 'Loot Command.')
     .addField(`maps`, 'Sends a link for GraalMaps.')
     .addField(`ping`, 'Gets the bot\'s ping.')
     .addField(`shields`, 'Sends a link for Taylor Richaards shields.')

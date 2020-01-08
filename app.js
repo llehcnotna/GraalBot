@@ -64,9 +64,7 @@ y.addListener('data', res => {
 
 client.on('message', async message => {
 
-    if(message.author.bot) return; // If the message author is a bot, return.
-    if(message.channel.type === 'dm') return message.reply(`**${message.author.username}**, You can not use commands within direct messages.`); // If message sent within DM's, return.
-    
+    if(message.author.bot) return; // If the message author is a bot, return.    
 
     let prefix = config.prefix; // Let prefix = whatever the prefix is in the config file.
     if(!message.content.startsWith(prefix)) return // If message does NOT start with a prefix, return.

@@ -49,17 +49,6 @@ function setActivity() {
 setInterval(setActivity, 1000 * 60 * 5) //sets and picks a new game every 5 minutes
 });
 
-////////////////////////////
-
-// Console Chat //
-let y = process.openStdin()
-y.addListener('data', res => {
-    let x = res.toString().trim().split(/ +/g)
-    client.channels.get('562371367278870544').send(x.join(' '));
-});
-
-//////////////////
-
 // Perms Stuff
 
 client.on('message', async message => {

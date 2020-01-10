@@ -2,11 +2,11 @@ const Discord = require('discord.js');
 
 module.exports.run = async (client, message, args) => {
 
-    // >loot <bug>
+    // >loot
 
 // Loot Location Embeds //
 
-msg = message.content.toLowerCase();
+
 // Taylor Richaards //
     if(args[0] === 'taylor') {
         let taylorEmbed = new Discord.RichEmbed()
@@ -212,7 +212,7 @@ if(args[0] === 'elster') {
     return;
 };
 
-////////////////////////
+///////////////////////
 
 // Loot List //
     if(args[0] === 'list') {
@@ -234,7 +234,7 @@ if(args[0] === 'elster') {
         .setTitle('Loot Locations')
         .setDescription('Specific selling locations for special loot.\nUse `g>loot <location name>` for the list of sellable loot.')
 
-        .addField('Locations', "Taylor\nRail\nRafael\nBlacksmith\nLantern\nEarl\nOldMan\njack\nFloydian\nOwl\nHazel\nJoshua\nElster")
+        .addField('Locations', "taylor\nrail\nrafael\nblacksmith\nlantern\nearl\noldman\njack\nfloydian\nowl\nhazel\njoshua\nelster")
 
         .setFooter('GraalOnline Classic Loot Locations')
 
@@ -244,6 +244,7 @@ if(args[0] === 'elster') {
 
 ///////////////////
 
+    if(!args[0]) {
 // Main Loot Embed //
     let LootMenu = new Discord.RichEmbed()
     .setTitle('Loot Menu')
@@ -256,6 +257,10 @@ if(args[0] === 'elster') {
 
     message.channel.send(LootMenu);
     return;
+
+    } else {
+        message.channel.send(`No argument called "${args}" found.`);
+    };
 };
 
 /////////////////////

@@ -4,60 +4,57 @@ const config = require('../config.json');
 module.exports.run = async (client, message, args) => {
 
     // >help
-    
+
     if(args[0] === 'bandit'){
-        message.reply('**Usage:** \`g>bandit\`');
+        message.channel.send(`\`\`\`${config.prefix}bandit\n\nSets a reminder for when you can claim bandit chests.\n\nDISABLED\`\`\``);
         return;
     };
     if(args[0] === 'botinfo'){
-        message.reply('**Usage:** \`g>botinfo\`');
+        message.channel.send(`\`\`\`${config.prefix}botinfo\n\nShows information of this bot.\`\`\``);
         return;
     };
     if(args[0] === 'bounty'){
-        message.reply('**Usage:** \`g>bounty\`');
+        message.channel.send(`\`\`\`${config.prefix}bounty\n\nSets a reminder for when you can get another crate from castle.\n\nDISABLED\`\`\``);
         return;
     };
     if(args[0] === 'bugs'){
-        message.reply('**Usage:** \`g>bugs <name>\`');
+        message.channel.send(`\`\`\`${config.prefix}bugs <name>\n\nGets information about the bugs in GraalClassic.\`\`\``);
         return;
     };
     if(args[0] === 'help'){
-        message.reply('**Usage:** \`g>help\`');
+        message.channel.send(`\`\`\`${config.prefix}help\n\nShows default help message.\`\`\``);
         return;
     };
     if(args[0] === 'loot'){
-        message.reply('**Usage:** \`g>loot location\`');
+        message.channel.send(`\`\`\`${config.prefix}loot <location>\n\nGets a list of locations where you can sell your loot.\`\`\``);
         return;
     };
     if(args[0] === 'maps'){
-        message.reply('**Usage:** \`g>maps\`');
+        message.channel.send(`\`\`\`${config.prefix}maps\n\nSends map website.\`\`\``);
         return;
     };
     if(args[0] === 'ping') {
-        message.reply('**Usage:** \`g>ping\`');
+        message.channel.send(`\`\`\`${config.prefix}ping\n\nPings the bot.\`\`\``);
         return;
     };
     if(args[0] === 'shields'){
-        message.reply('**Usage:** \`g>shields\`');
+        message.channel.send(`\`\`\`${config.prefix}shields\n\nSends link to Taylor Richaards shield site.\`\`\``);
         return;
     };
     if(args[0] === 'swords'){
-        message.reply('**Usage:** \`g>swords\`');
+        message.channel.send(`\`\`\`${config.prefix}swords\n\nSends link to Taylor Richaards sword site.\`\`\``);
         return;
     };
     if(args[0] === 'spoils'){
-        message.reply('**Usage:** \`g>spoils\`');
+        message.channel.send(`\`\`\`${config.prefix}spoils\n\nSets a reminder for when you can claim spoils from the Giant Blob.\n\nDISABLED\`\`\``);
         return;
     };
     if(args[0] === 'uptime'){
-        message.reply('**Usage:** \`g>uptime\`');
+        message.channel.send(`\`\`\`${config.prefix}uptime\n\nShows current sessions uptime.\`\`\``);
         return;
     };
 
-    message.channel.send(`**${message.author.username}**, Check your DM's!`).then(function (message) {
-        message.react('🗨');
-    });
-
+    if(!args[0]) {
     let helpEmbed = new Discord.RichEmbed()
     .setColor('')
     .setTitle('**GraalBot Help**')
@@ -68,7 +65,7 @@ module.exports.run = async (client, message, args) => {
     .addField(`bounty`, 'Sends a reminder to do the daily bounty quest.')
     .addField(`bugs`, 'Sends a list of all the catchable bugs on GraalClassic.')
     .addField(`help`, 'Sends this message.')
-    .addField('loot', 'Loot Command.')
+    .addField('loot', 'Sends loot menu.')
     .addField(`maps`, 'Sends a link for GraalMaps.')
     .addField(`ping`, 'Gets the bot\'s ping.')
     .addField(`shields`, 'Sends a link for Taylor Richaards shields.')
@@ -77,6 +74,11 @@ module.exports.run = async (client, message, args) => {
     .addField(`uptime`, 'Shows how long the bot has been running for.')
 
     message.author.send(helpEmbed);
+
+    } else {
+        let command = client.commands.get(client.aliases.get(args[0].toLowerCase()) || args[0].toLowerCase())
+        if(!command) return message.channel.send(`No command called "${args}" found.`)
+    };
 };
 
 module.exports.help = {

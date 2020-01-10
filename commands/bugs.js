@@ -511,20 +511,24 @@ module.exports.run = async (client, message, args) => {
         return;
     };
 //////////
-
-// Main Bug Embed //
-    let mainEmbed = new Discord.RichEmbed()
-    .setTitle('Bugs')
-    .setDescription('Use `g>bugs <name>` to get more information on the bugs on this list.')
-    .addField('Butterfly Class', `agrias\narizona\nazure\nbluemorpho\nclouded\nemperor\nhairstreak\nwhitebutterfly\nmetal\nmonarch\npeacock\nringlet\nbluebutterfly\nswallowtail\ntiger`, true) // Butterfly Class
-    .addField('Ground Class', 'blackbeetle\nblackladybug\ncockroach\ngrasshopper\nladybug\nmantis\npillbug\nspider\nworm', true) // Ground Class
-    .addField('Flying Class', 'bumblebee\ndragonfly\nfirefly', true) // Flying Class
-
-    .setFooter('GraalOnline Classic Bug Types')
-
-    message.channel.send(mainEmbed);
-    return;
-   
+if(!args[0]) {
+    // Main Bug Embed //
+        let mainEmbed = new Discord.RichEmbed()
+        .setTitle('Bugs')
+        .setDescription('Use `g>bugs <name>` to get more information on the bugs on this list.')
+        .addField('Butterfly Class', `agrias\narizona\nazure\nbluemorpho\nclouded\nemperor\nhairstreak\nwhitebutterfly\nmetal\nmonarch\npeacock\nringlet\nbluebutterfly\nswallowtail\ntiger`, true) // Butterfly Class
+        .addField('Ground Class', 'blackbeetle\nblackladybug\ncockroach\ngrasshopper\nladybug\nmantis\npillbug\nspider\nworm', true) // Ground Class
+        .addField('Flying Class', 'bumblebee\ndragonfly\nfirefly', true) // Flying Class
+    
+        .setFooter('GraalOnline Classic Bug Types')
+    
+        message.channel.send(mainEmbed);
+        return;
+    
+        } else {
+            message.channel.send(`No bug called "${args}" found.`);
+        };
+       
 };
 
 ////////////////////

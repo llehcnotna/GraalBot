@@ -13,12 +13,12 @@ module.exports.run = async (client, message, args) => {
     if(!gocMember.roles.has(gocRole.id)) {
         await(gocMember.addRole(gocRole.id));
     
-        return message.channel.send(`**${message.author.username}**, you will now recive updates for **${gocRole.name}**!`);
+        return message.channel.send(`**${message.author.username}**, you will now receive updates for **${gocRole.name}**!`);
     }
     else {
         await(gocMember.removeRole(gocRole.id));
     
-        return message.channel.send(`**${message.author.username}**, you will no longer recive updates for **${gocRole.name}**!`);
+        return message.channel.send(`**${message.author.username}**, you will no longer receive updates for **${gocRole.name}**!`);
     }
 }
     

@@ -5,7 +5,7 @@ module.exports.run = async (client, message, args) => {
 
     // >bandit
 
-    //return message.channel.send('This command is not active.');
+    return message.channel.send('This command is not active.');
 
     let guildMember = message.member;
     const banditRole = message.guild.roles.find(r => r.name === 'Bandit');

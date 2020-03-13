@@ -4,6 +4,23 @@ module.exports.run = async (client, message, args) => {
 
     // >bugs <bug>
 
+// X //
+    if(args[0] === 'x') {
+        let xEmbed = new Discord.RichEmbed()
+        .setColor('#000000')
+        .setAuthor('X')
+        .setDescription('Obtainability: **Highly Unlikely**')
+
+        .addField('Habitat', 'Unknown').addField('Location', 'Unknown')
+        .addField('Selling Price', 'Unknown')
+        
+        .setFooter('God Class • Deity')
+
+        message.channel.send(xEmbed);
+        return;
+    };
+///////
+
 // Agrias Butterfly //
     if(args[0] === 'agrias') {
         let agriasEmbed = new Discord.RichEmbed()

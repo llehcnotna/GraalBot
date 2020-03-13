@@ -11,6 +11,8 @@ module.exports.run = async (client, message, args) => {
     const bountyRole = message.guild.roles.find(r => r.name === 'Bounty');
     const bountyEmote = client.emojis.find(e => e.name === 'bountybox');
 
+    if(!bountyRole) return message.reply('I couldn\'t find a role called \`Bounty\`, please create one or ask a server administrator.');
+
     // Error Embed (active reminder)
     const bountyError = new Discord.RichEmbed()
     .setColor('#b70000')

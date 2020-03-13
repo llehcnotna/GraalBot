@@ -9,7 +9,7 @@ module.exports.run = async (client, message, args) => {
 
     let botEmbed = new Discord.RichEmbed()
     .setColor("")    
-    .setTitle('Bot Name: **GraalBot**')
+    .setTitle(`Client name: ${client.user.username}`)
     .setThumbnail(bIcon)
 
     .setDescription(`Playing: ${client.user.presence.game ? `**${client.user.presence.game.name}**` : "**Nothing.**"}`, true)
@@ -23,5 +23,5 @@ module.exports.run = async (client, message, args) => {
 
 module.exports.help = {
     name: 'botinfo',
-    aliases: ['bi']
+    aliases: ['bi', 'info']
 };

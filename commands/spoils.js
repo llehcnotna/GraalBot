@@ -11,6 +11,8 @@ module.exports.run = async (client, message, args) => {
     const spoilsRole = message.guild.roles.find(r => r.name === 'Spoils');
     const spoilsEmote = client.emojis.find(e => e.name === 'spoils');
 
+    if(!spoilsRole) return message.reply('I couldn\'t find a role called \`Spoils\`, please create one or ask a server administrator.');
+
     // Error Embed (active reminder)
     const spoilsError = new Discord.RichEmbed()
     .setColor('#b70000')

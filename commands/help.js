@@ -3,8 +3,8 @@ const config = require('../config.json');
 
 module.exports.run = async (client, message, args) => {
 
-    // >help
-
+    // >help <command>
+    
     if(args[0] === 'bandit'){
         message.channel.send(`\`\`\`${config.prefix}bandit\n\nSets a reminder for when you can claim bandit chests.\n\nDISABLED\`\`\``);
         return;
@@ -19,6 +19,10 @@ module.exports.run = async (client, message, args) => {
     };
     if(args[0] === 'bugs'){
         message.channel.send(`\`\`\`${config.prefix}bugs <name>\n\nGets information about the bugs in GraalClassic.\`\`\``);
+        return;
+    };
+    if(args[0] === 'goc'){
+        message.channel.send(`\`\`\`${config.prefix}goc\n\nGives the GraalClassic role if found.\`\`\``);
         return;
     };
     if(args[0] === 'help'){
@@ -41,12 +45,12 @@ module.exports.run = async (client, message, args) => {
         message.channel.send(`\`\`\`${config.prefix}shields\n\nSends link to Taylor Richaards shield site.\`\`\``);
         return;
     };
-    if(args[0] === 'swords'){
-        message.channel.send(`\`\`\`${config.prefix}swords\n\nSends link to Taylor Richaards sword site.\`\`\``);
-        return;
-    };
     if(args[0] === 'spoils'){
         message.channel.send(`\`\`\`${config.prefix}spoils\n\nSets a reminder for when you can claim spoils from the Giant Blob.\n\nDISABLED\`\`\``);
+        return;
+    };
+    if(args[0] === 'swords'){
+        message.channel.send(`\`\`\`${config.prefix}swords\n\nSends link to Taylor Richaards sword site.\`\`\``);
         return;
     };
     if(args[0] === 'uptime'){
@@ -55,22 +59,24 @@ module.exports.run = async (client, message, args) => {
     };
 
     if(!args[0]) {
+        message.react('✅');
     let helpEmbed = new Discord.RichEmbed()
     .setColor('')
     .setTitle('**GraalBot Help**')
     .setDescription(`Prefix: **${config.prefix}**`)
     .addField('**__Commands__**', `For more information on a specific command use \`${config.prefix}help <command>\``)
-    .addField(`bandit`, 'Sends a reminder to do bandit chests.')
+    .addField(`~~bandit~~`, '~~Sends a reminder to do bandit chests.~~')
     .addField(`botinfo`, 'Sends information about this bot.')
-    .addField(`bounty`, 'Sends a reminder to do the daily bounty quest.')
+    .addField(`~~bounty~~`, '~~Sends a reminder to do the daily bounty quest.~~')
     .addField(`bugs`, 'Sends a list of all the catchable bugs on GraalClassic.')
+    .addField(`goc`, 'Adds GraalClassic role to user.')
     .addField(`help`, 'Sends this message.')
     .addField('loot', 'Sends loot menu.')
     .addField(`maps`, 'Sends a link for GraalMaps.')
     .addField(`ping`, 'Gets the bot\'s ping.')
     .addField(`shields`, 'Sends a link for Taylor Richaards shields.')
     .addField(`swords`, 'Sends a link for Taylor Richaards swords.')
-    .addField(`spoils`, 'Sends a reminder for the Giant Blob Boss.')
+    .addField(`~~spoils~~`, '~~Sends a reminder for the Giant Blob Boss.~~')
     .addField(`uptime`, 'Shows how long the bot has been running for.')
 
     message.author.send(helpEmbed);
@@ -79,7 +85,7 @@ module.exports.run = async (client, message, args) => {
         let command = client.commands.get(client.aliases.get(args[0].toLowerCase()) || args[0].toLowerCase())
         if(!command) return message.channel.send(`No command called "${args}" found.`)
     };
-};
+}; 
 
 module.exports.help = {
     name: 'help',

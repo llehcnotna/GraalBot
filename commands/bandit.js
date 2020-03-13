@@ -11,6 +11,8 @@ module.exports.run = async (client, message, args) => {
     const banditRole = message.guild.roles.find(r => r.name === 'Bandit');
     const banditEmote = client.emojis.find(e => e.name === 'bandit');
 
+    if(!banditRole) return message.channel.reply('I couldn\'t find a role called \`Bandit\`, please create one or ask a server administrator.');
+
     // Error Embed (active reminder)
     const banditError = new Discord.RichEmbed()
     .setColor('#b70000')

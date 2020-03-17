@@ -12,7 +12,9 @@
   "dependencies": {
     "discord.js": "^11.4.2",
     "moment": "^2.24.0",
+    "moment-duration-format": "^2.3.2",
     "ms": "^2.1.1",
     "nodemon": "^1.18.10"
+    "quick.db": "^7.0.0-b22"
   }
 }

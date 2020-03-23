@@ -17,8 +17,8 @@ module.exports.run = async (client, message, args) => {
     // Error Embed (active reminder)
     const banditError = new Discord.RichEmbed()
     .setColor('#b70000')
-    .setDescription(`You already have an active reminder for `Bandit`.\nCome back in ${moment.duration(banditTimeout - Date.now() - banditTime)).format('h [hrs] m [mins] s [seconds]')}.`);
-
+    .setDescription(`You already have an active reminder for \`Bandit\`.\nCome back in ${moment.duration(banditTimeout - (Date.now() - banditTime)).format('h [hrs] m [mins] s [seconds]')}.`);
+   
     // Initial reminder Embed.
     const banditEmbed = new Discord.RichEmbed()
     .setColor('#2F2B33')

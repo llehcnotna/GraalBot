@@ -66,33 +66,4 @@ client.on('message', async message => {
 
 });
 
-    // Auto Message //
-    var NOTIFY_CHANNEL;
-    client.on('ready', () => {
-        NOTIFY_CHANNEL = client.channels.find(c => c.name === 'spam-commands'); // Channel to send notification
-    
-    
-    let replies = ['**Client Restarting...**']
-
-    let result = Math.floor((Math.random() * replies.length));
-
-    const START_DATE = '2018-10-10'; // Date used as the starting point for multi-hour intervals, must be YYYY-MM-DD format
-    const START_HOUR = 7; // Hour of the day when the timer begins (0 is 12am, 23 is 11pm), used with START_DATE and INTERVAL_HOURS param
-    const INTERVAL_HOURS = 12; // Trigger at an interval of every X hours
-    const TARGET_MINUTE = 0; // Minute of the hour when the chest will refresh, 30 means 1:30, 2:30, etc.
-    const OFFSET = 0; // Notification will warn that the target is X minutes away
-    
-    // Don't change any code below
-    const NOTIFY_MINUTE = (TARGET_MINUTE < OFFSET ? 60 : 0) + TARGET_MINUTE - OFFSET;
-    const START_TIME = new Date(new Date(START_DATE).getTime() + new Date().getTimezoneOffset() * 60000 + START_HOUR * 3600000).getTime();
-    
-    setInterval(function() {
-        var d = new Date();
-        let result = Math.floor((Math.random() * replies.length));
-        if(Math.floor((d.getTime() - START_TIME) / 3600000) % INTERVAL_HOURS > 0) return; // Return if hour is not the correct interval
-        if(d.getMinutes() !== NOTIFY_MINUTE) return; // Return if current minute is not the notify minute
-        NOTIFY_CHANNEL.send(replies[result]).then(message => client.destroy()).then(() => client.login(process.env.BOT_TOKEN));
-    }, 60 * 1000); // Check every minute
-});
-
 client.login(process.env.BOT_TOKEN);
